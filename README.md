@@ -32,6 +32,6 @@ Cause I need more completed assignments to finish the class (>.>)
 ## Link to my GitHub
 [John Magnuson / Sobewon's GitHub](https://github.com/sobewon)
 
-## Link to launched app
+## Link to launched app on Heroku
 
-[Live Application Link](https://github.com/sobewon)
+[Live Application Link](https://basic-text-edit.herokuapp.com/)
