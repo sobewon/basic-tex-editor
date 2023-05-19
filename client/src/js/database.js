@@ -12,36 +12,38 @@ const initdb = async () =>
     },
   });
 
-// TODO: Add logic to a method that accepts some content and adds it to the database
+// TODO: Add logic to a method that accepts some content and adds it to the database 
+//finished
 export const putDb = async (content) => {
     // use a try catch block in case of errors with db
   try {
     const db = await openDB('jate', 1);
 
-    const tx = db.transaction('jate', 'readwrite');
-    const store = tx.objectStore('jate');
+    const tx = db.transaction('content', 'readwrite');
+    const store = tx.objectStore('content');
 
-    await store.put(content);
+    const request = store.add({id: 1, text:content})
 
-    await tx.complete;
-    console.log('Content added to the database:', content);
+    const result = await request
+    console.log('Content added to the database:', result);
   } catch (error) {
     console.error('Error putting content into the database:', error);
   }
 };
 
 
-// TODO: Add logic for a method that gets all the content from the database
+// TODO: Add logic for a method that gets all the content from the database 
+//finished
 export const getDb = async () => {
   // use a try catch block in case of errors with db
   try {
 
   // Create a connection to the database database and version we want to use.
-  const textDb = await openDB('text', 1);
+  const textDb = await openDB('jate', 1);
 
-  const tx = textDb.transaction('text', 'readonly');
+  const tx = textDb.transaction('content', 'readonly');
 
-  const store = tx.objectStore('text');
+  const store = tx.objectStore('content');
 
   const request = store.getAll();
 
